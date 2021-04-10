@@ -4,12 +4,19 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
+import { auth } from "./firebase";
 function Header() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user}, dispatch] = useStateValue();
+
+  function handleAuthentication(){
+    if(user){
+      auth.signOut();
+    }
+  }
 
   return (
     <div className="header">
-      <Link to="/">
+      <Link to='/login'> 
         <img
           className="header__logo"
           src="https://www.nicepng.com/png/full/16-167642_amazon-logo-amazon-logo-white-text.png"
@@ -21,10 +28,10 @@ function Header() {
       </div>
 
       <div className="header__nav">
-        <Link to='/login'>
-          <div className="header__option">
+        <Link to={!user && '/login'}> {/* if no user then only go to login page */}
+          <div onClick={handleAuthentication} className="header__option">
             <span className="header__optionLineOne">Hello Guest</span>
-            <span className="header__optionLineTwo">Sign In</span>
+            <span className="header__optionLineTwo">{user?"Sign-out":"Sign-in"}</span>
           </div>
         </Link>
 
