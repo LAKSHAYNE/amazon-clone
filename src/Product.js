@@ -18,7 +18,7 @@ function Product(props) {
     }
 
   return (
-    <div className="product">
+    <div className="product" id={props.id}>
       <div className="product__info">
         <p>{props.title}</p>
         <p className="product__price">

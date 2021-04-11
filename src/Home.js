@@ -28,14 +28,13 @@ function Home() {
         <div className="home__row">
         <Product 
             img="https://m.media-amazon.com/images/I/41Hxk3Dl5RL.jpg"
-            title="HP Pavilion Gaming 9th Gen Intel Core i5 Processor 15.6-inch Laptop (Core i5-9300H/8GB/512GB SSD/Windows 10 Home/4GB NVIDIA GeForce GTX 1650 Graphics/Shadow Black), 15-dk0268tx
-                    by HP"
+            title="HP Pavilion Gaming 9th Gen Intel Core i5 Processor 15.6-inch Laptop"
             rating={4}
             price={850}
             id="97245688"
         />
         <Product
-            title="Microsoft Surface Laptop 3 Intel Core™ i5 10th Gen 13.5 inch Touchscreen Laptop (8GB/128GB SSD/Windows 10" 
+            title="Microsoft Surface Laptop 3 Intel Core™ i5 10th Gen 13.5 inch Touchscreen Laptop" 
             img="https://m.media-amazon.com/images/I/31fcb+HkMBL.jpg"
             rating={4}
             price={1200}
@@ -46,7 +45,7 @@ function Home() {
             rating={3}
             price={1400}
             id="85296314"
-            title="Apple MacBook Pro (13-inch, 8GB RAM, 256GB SSD, 1.4GHz Quad-core 8th-Generation Intel Core i5"
+            title="Apple MacBook Pro (13-inch, 8GB RAM, 256GB SSD)"
         />
         </div>
 

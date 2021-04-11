@@ -16,7 +16,7 @@ function Header() {
 
   return (
     <div className="header">
-      <Link to='/login'> 
+      <Link to='/'> 
         <img
           className="header__logo"
           src="https://www.nicepng.com/png/full/16-167642_amazon-logo-amazon-logo-white-text.png"
