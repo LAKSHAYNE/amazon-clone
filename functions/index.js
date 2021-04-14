@@ -2,7 +2,7 @@ require('dotenv').config()
 const functions = require("firebase-functions");
 const express = require('express');
 const cors= require('cors');
-const stripe =require('stripe')(process.env.SECRET_KEY);
+const stripe =require('stripe')("sk_test_51If6dESJW16KBy6Kakpdf56DdbtTDDGfGQgH6OD8vXw6m0fvE8ULeHxtVYnO9jv5maS6QWlt7AzoneervBMph9b700Wi5RUNSo");
 
 
 //API
@@ -29,7 +29,7 @@ app.post('/payments/create',async(req,response)=>{
     console.log('Payment successfully recieved the Shayne',total);
     const paymentIntent = await stripe.paymentIntents.create({
         amount: total, // subunits of the currency
-        currency: "usd",
+        currency: "inr",
       });
     
       // OK - Created

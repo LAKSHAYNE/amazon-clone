@@ -22,7 +22,7 @@ function Product(props) {
       <div className="product__info">
         <p>{props.title}</p>
         <p className="product__price">
-          <small>$</small>
+          <small>Rs.</small>
           <strong>{props.price}</strong>
         </p>
         <div className="product__rating">

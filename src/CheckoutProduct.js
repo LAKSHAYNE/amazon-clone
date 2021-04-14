@@ -21,13 +21,13 @@ function CheckoutProduct(props) {
             <div className='checkoutProduct__info'>
                 <p className='checkoutProduct__title'>{props.title}</p>
                 <p className='checkoutProduct__price'>
-                    <small>$</small>
+                    <small>Rs.</small>
                     <strong>{props.price}</strong>
                 </p>
                 <div className='checkoutProduct__rating'>
                     {Array(props.rating).fill().map((x)=><p>⭐</p>)}
                 </div>
-                <button onClick={removeFromBasket}>Remove from basket</button>
+                {!props.hideButton && (<button onClick={removeFromBasket}>Remove from basket</button>)}
             </div>
         </div>
        
