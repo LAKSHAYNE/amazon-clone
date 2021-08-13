@@ -20,7 +20,7 @@ app.use(cors({origin:true}))
 app.use(express.json());
 
 //API routes
-app.get('/',(req,res)=>res.send('hello world'))
+app.get('/',(req,res)=>res.status(200).send('hello world'))
 app.get('/hello',(req,res)=>res.send("the shayne in the house"))
 
 
@@ -40,7 +40,7 @@ app.post('/payments/create',async(req,response)=>{
 
 
 //added for heroku
-app.listen(process.env.PORT||3000,(req,res)=>console.log("app is running"))
+app.listen(process.env.PORT,(req,res)=>console.log("app is running"))
 
 //listen command
 //exports.api=functions.https.onRequest(app)
