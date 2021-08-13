@@ -1,27 +1,25 @@
+import React from "react";
 import "./Login.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "./firebase";
 
-function Login() {
+function CreateUser() {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function signIn(e) {
-    e.preventDefault();
-    auth.signInWithEmailAndPassword(email,password)
-    .then((auth)=>{
-        if(auth){
-            history.push('/');
-        }
-    })
-    .catch(err=>alert(err))
-  }
-
   function register(e) {
     e.preventDefault();
-    history.push('/createUser')
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        if (auth) {
+          history.push("/");
+        }
+        console.log(auth);
+      })
+      .catch((err) => alert(err.message));
   }
 
   return (
@@ -33,7 +31,7 @@ function Login() {
         />
       </Link>
       <div className="login__container">
-        <h1>Sign In</h1>
+        <h1>Create User</h1>
         <form>
           <h5>Email</h5>
           <input type="text" onChange={(e) => setEmail(e.target.value)} />
@@ -43,14 +41,6 @@ function Login() {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-
-          <button
-            type="submit"
-            onClick={signIn}
-            className="login__signInButton"
-          >
-            Sign-in
-          </button>
         </form>
         <p>
           By continuing, you agree to Amazon's Conditions of Use and Privacy
@@ -64,4 +54,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default CreateUser;

@@ -3,8 +3,9 @@ import "./Product.css";
 import { useStateValue } from "./StateProvider";
 
 function Product(props) {
-    const [state,dispatch]=useStateValue();
+    const [{user},dispatch]=useStateValue();
     const addToBasket = ()=>{
+      if(user){
       dispatch({
         type: "ADD_TO_BASKET",
         item: {
@@ -15,6 +16,10 @@ function Product(props) {
           rating:props.rating,
         }
       })
+    }
+    else{
+      alert("Login to amazon first")
+    }
     }
 
   return (
